@@ -25,7 +25,7 @@ class Readability {
     const DOM_DEFAULT_CHARSET = "utf-8";
 
     // 当判定失败时显示的内容
-    const MESSAGE_CAN_NOT_GET = "Sorry, readability was unable to parse this page for content.  \n
+    public static $message_can_not_get = "Sorry, readability was unable to parse this page for content.  \n
             If you feel like it should have been able to, 
             please let me know by mail: lucky[at]gracecode.com";
 
@@ -182,7 +182,7 @@ class Readability {
             array_push($this->parentNodes, $parentNode);
         }
 
-        $topBox = $this->DOM->createElement('div', Readability::MESSAGE_CAN_NOT_GET);
+        $topBox = $this->DOM->createElement('div', Readability::$message_can_not_get);
         // Assignment from index for performance. 
         //     See http://www.peachpit.com/articles/article.aspx?p=31567&seqNum=5 
         for ($i = 0, $len = sizeof($this->parentNodes); $i < $len; $i++) {
