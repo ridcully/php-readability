@@ -39,7 +39,10 @@ class Readability {
     private $parentNodes = array();
 
     // 需要删除的标签
-    private $junkTags = Array("style", "form", "iframe", "script", "button", "input", "textarea");
+    private $junkTags = Array("style", "form", "iframe", "script", "button", "input", "textarea", 
+                                "noscript", "select", "option", "object", "applet", "basefont",
+                                "bgsound", "blink", "canvas", "command", "menu", "nav", "datalist",
+                                "embed", "frame", "frameset", "keygen", "label", "marquee", "link");
 
     // 需要删除的属性
     private $junkAttrs = Array("style", "class", "onclick", "onmouseover", "align", "border", "margin");
