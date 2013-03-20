@@ -39,7 +39,10 @@ class Readability {
     private $parentNodes = array();
 
     // 需要删除的标签
-    private $junkTags = Array("style", "form", "iframe", "script", "button", "input", "textarea");
+    private $junkTags = Array("style", "form", "iframe", "script", "button", "input", "textarea", 
+                                "noscript", "select", "option", "object", "applet", "basefont",
+                                "bgsound", "blink", "canvas", "command", "menu", "nav", "datalist",
+                                "embed", "frame", "frameset", "keygen", "label", "marquee", "link");
 
     // 需要删除的属性
     private $junkAttrs = Array("style", "class", "onclick", "onmouseover", "align", "border", "margin");
@@ -242,7 +245,7 @@ class Readability {
         // 多个数据，以数组的形式返回
         return Array(
             'title'   => $ContentTitle ? $ContentTitle->nodeValue : "",
-            'content' => $Target->saveHTML()
+            'content' => mb_convert_encoding($Target->saveHTML(), Readability::DOM_DEFAULT_CHARSET, "HTML-ENTITIES")
         );
     }
 
